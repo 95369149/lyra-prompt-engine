@@ -4,7 +4,7 @@
 
 **自进化 AI 提示词编译引擎**
 
-[![Version](https://img.shields.io/badge/version-V5.2-red?style=flat-square)](PROMPT.md)
+[![Version](https://img.shields.io/badge/version-V5.3-red?style=flat-square)](PROMPT.md)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/95369149/lyra-prompt-engine?style=flat-square&color=yellow)](https://github.com/95369149/lyra-prompt-engine/stargazers)
 
@@ -89,22 +89,13 @@ Lyra 会自动识别模式，提问澄清需求，然后输出结构化的提示
 
 ## 🎨 视觉生成协议
 
+> 📎 独立文件：[`VISUAL.md`](VISUAL.md) — `[视觉]` 模式触发时加载
+
 核心原则：**写意图，不写细节。** 新一代模型有世界知识和导演思维。
 
-**简单场景** — 一句话搞定：
-```
-生成一个精美高级的工业机器人广告，注意分镜编排
-```
-
-**11 个场景模板：**
-
-| 场景 | 提示词模式 |
-|:-----|:---------|
-| 产品广告 | "生成一个[产品]广告，注意分镜编排" |
-| 品牌宣传 | "生成一个讲述[品牌]的宣传片" |
-| 换装展示 | "让@图片A的人换上@图片B的服装展示" |
-| 照片→Vlog | "参考@视频1的运镜节奏，用图片变成Vlog" |
-| 口播视频 | "使用@图片1人物+@音频1声音，生成视频播客" |
+- 12 个场景模板（产品广告/品牌宣传/教学视频/换装/Vlog/口播/MV/动作迁移/小说动画/UI宣传片/工业设备...）
+- 参考素材语法（@图片/@视频/@音频）
+- 避坑清单 + 独立质量自检
 | 音频→MV | "为@音频1生成符合氛围的剧情，转场卡点" |
 | 小说→动画 | 直接粘贴原文+"画风对齐@视频1风格" |
 | ... | 详见 [PROMPT.md](PROMPT.md) |
@@ -201,6 +192,12 @@ Orchestrator（主模型）
 ---
 
 ## 📋 Changelog
+
+### V5.3 (2026-02-17)
+- 架构拆分：视觉生成协议独立为 [`VISUAL.md`](VISUAL.md)
+- PROMPT.md 瘦身 ~50 行，专注文字/代码/分析/Agent/编排/风格
+- 视觉协议可独立进化，跟随模型更新节奏
+- 新增工业设备场景模板
 
 ### V5.2 (2026-02-17)
 - 风格 Skill 协议重大升级：8 维风格分析框架 + 三阶段构建法
