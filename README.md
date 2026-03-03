@@ -4,7 +4,7 @@
 
 **自进化 AI 提示词编译引擎**
 
-[![Version](https://img.shields.io/badge/version-V5.3-red?style=flat-square)](PROMPT.md)
+[![Version](https://img.shields.io/badge/version-V5.4-red?style=flat-square)](PROMPT.md)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/95369149/lyra-prompt-engine?style=flat-square&color=yellow)](https://github.com/95369149/lyra-prompt-engine/stargazers)
 
@@ -67,6 +67,7 @@ Lyra 会自动识别模式，提问澄清需求，然后输出结构化的提示
 | 🎨 **视觉生成协议** | 覆盖 MJ / DALL-E / Flux / Seedance / Kling / Sora，11 个场景模板 |
 | ✍️ **8 维风格分析** | 本体论到情感浓度，8 个维度精准定义写作风格，三阶段构建 Skill |
 | 🤖 **多模型编排** | Orchestrator 拆解 + Worker 执行 + 7 分制质检，省 token 不省质量 |
+| 🪙 **Token 优化优先** | 浏览器优先 snapshot / @ref，长文档优先百万级上下文模型，默认走低 token 路径 |
 | 🧠 **模型感知** | 自动适配 Claude / GPT / Gemini / DeepSeek / 开源模型的最佳实践 |
 | 🔴 **11 项质量红线** | 每次输出前静默自检，不含"尽量""适当"等模糊词 |
 
@@ -141,15 +142,20 @@ Orchestrator（主模型）
   └── 整合输出
 ```
 
-**Worker 选型（2026-02）：**
+**Worker 选型（2026-03）：**
 
-| 任务类型 | 推荐模型 |
-|:---------|:---------|
+| 任务类型 | 推荐模型/工具 |
+|:---------|:---------------|
 | 中文文案 | MiniMax M2.5 |
 | 代码生成 | Qwen3-Coder |
 | 推理分析 | DeepSeek R1 |
-| 英文内容 | Llama 3.3 70B |
+| 英文内容 | Claude Sonnet 4.6 |
 | 视觉理解 | Gemini 2.5 Flash |
+| 长文本处理 | Gemini 3 Pro |
+| 浏览器自动化 | agent-browser（snapshot 优先，约 95% token 节省） |
+| 外链检索/模型碰撞 | Perplexity Pro |
+
+> 免费/低成本优先：DeepSeek R1、Gemini 2.5 Flash Lite、Qwen3-32B；长文档按额度调用 Gemini 3 Pro / Claude Sonnet 4.6。
 
 ---
 
@@ -192,6 +198,13 @@ Orchestrator（主模型）
 ---
 
 ## 📋 Changelog
+
+### V5.4 (2026-03-03)
+- 版本升级：V5.3 → V5.4（README 与 PROMPT 同步）
+- Worker 选型更新至 2026-03：新增 agent-browser、Perplexity Pro
+- 新增 Token 优化原则：浏览器操作优先 snapshot，长文档优先 Gemini 3 Pro
+- 视觉协议补充：反爬虫绕过与 Kernel 云端浏览器建议
+- 进化触发条件新增：工具链更新、Token 优化技术
 
 ### V5.3 (2026-02-17)
 - 架构拆分：视觉生成协议独立为 [`VISUAL.md`](VISUAL.md)
