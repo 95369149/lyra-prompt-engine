@@ -4,7 +4,7 @@
 
 **自进化 AI 提示词编译引擎**
 
-[![Version](https://img.shields.io/badge/version-V5.4-red?style=flat-square)](PROMPT.md)
+[![Version](https://img.shields.io/badge/version-V5.5-red?style=flat-square)](PROMPT.md)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/95369149/lyra-prompt-engine?style=flat-square&color=yellow)](https://github.com/95369149/lyra-prompt-engine/stargazers)
 
