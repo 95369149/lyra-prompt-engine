@@ -4,7 +4,12 @@
 import { TaskSpec, taskSpecJsonSchema } from './schemas/task_spec';
 import { AppResponse, appResponseJsonSchema } from './schemas/app_response';
 import { safeJsonParse, validate } from './validators';
+import { buildRepairPrompt } from './validators/repair';
 import { assembleContext, renderSystemPrompt, renderClosingGuard } from './assembler';
+import { detectVendorProfile, wrapSystemPrompt } from './policies/vendor_profiles';
+import { callOpenAI } from './adapters/openai';
+import { callGemini } from './adapters/gemini';
+import { callGrok } from './adapters/grok';
 
 export interface LyraConfig {
   openai?: string;
@@ -20,13 +25,7 @@ export class LyraEngine {
     this.config = config;
   }
 
-  /**
-   * Phase 1 MVP: 白话 -> TaskSpec -> 校验
-   * 暂时不调用真实模型，只验证链路
-   */
   async parseIntent(userText: string): Promise<TaskSpec> {
-    // TODO: 调用模型生成 TaskSpec
-    // 当前返回 mock 数据验证链路
     const mockTaskSpec: TaskSpec = {
       task_type: "generate",
       user_intent: userText,
@@ -54,14 +53,10 @@ export class LyraEngine {
     if (!result.ok) {
       throw new Error(`TaskSpec validation failed: ${result.errors.join('; ')}`);
     }
-
     return mockTaskSpec;
   }
 
-  /**
-   * Phase 1 测试：组装上下文
-   */
-  buildContext(taskSpec: TaskSpec): string {
+  buildContext(taskSpec: TaskSpec, vendor: string, model: string): { systemPrompt: string; closingGuard: string } {
     const ctx = assembleContext({
       role: "你是 Lyra V6.0，上下文装配与结构化输出引擎。",
       task: taskSpec.user_intent,
@@ -74,18 +69,62 @@ export class LyraEngine {
       schemaName: taskSpec.output_contract.schema_name
     });
 
-    const systemPrompt = renderSystemPrompt(ctx);
+    const profile = detectVendorProfile(vendor, model);
+    const basePrompt = renderSystemPrompt(ctx);
+    const systemPrompt = wrapSystemPrompt(profile, basePrompt);
     const closingGuard = renderClosingGuard(ctx);
 
-    return `${systemPrompt}\n\n---\n\n${closingGuard}`;
+    return { systemPrompt, closingGuard };
   }
 
-  /**
-   * Phase 1 入口：验证链路
-   */
-  async run(userText: string): Promise<{ taskSpec: TaskSpec; context: string }> {
+  async callVendor(vendor: string, model: string, systemPrompt: string, userPrompt: string, schema: any): Promise<string> {
+    if (vendor === "openai" && this.config.openai) {
+      return callOpenAI({
+        apiKey: this.config.openai,
+        model,
+        systemPrompt,
+        userPrompt,
+        schemaName: "app_response_v1",
+        schema
+      });
+    }
+    if (vendor === "google" && this.config.google) {
+      return callGemini({
+        apiKey: this.config.google,
+        model,
+        systemPrompt,
+        userPrompt,
+        schema
+      });
+    }
+    if (vendor === "xai" && this.config.xai) {
+      return callGrok({
+        apiKey: this.config.xai,
+        model,
+        systemPrompt,
+        userPrompt,
+        schemaName: "app_response_v1",
+        schema
+      });
+    }
+    throw new Error(`Unsupported vendor or missing key: ${vendor}`);
+  }
+
+  async run(userText: string, vendor = "openai", model = "gpt-4.1"): Promise<{ taskSpec: TaskSpec; context: string; phase: string }> {
     const taskSpec = await this.parseIntent(userText);
-    const context = this.buildContext(taskSpec);
-    return { taskSpec, context };
+    const { systemPrompt, closingGuard } = this.buildContext(taskSpec, vendor, model);
+    return {
+      taskSpec,
+      context: `${systemPrompt}\n\n---\n\n${closingGuard}`,
+      phase: "phase2-skeleton-ready"
+    };
+  }
+
+  buildRepairPromptExample(errors: string[], badOutput: string): string {
+    return buildRepairPrompt({
+      originalOutput: badOutput,
+      errors,
+      schemaName: "app_response_v1"
+    });
   }
 }
