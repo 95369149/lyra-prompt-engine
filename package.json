@@ -1,0 +1,18 @@
+{
+  "name": "lyra-prompt-engine",
+  "version": "6.0.0-alpha.1",
+  "description": "Context assembler + model policy router + schema enforcer",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "node --loader ts-node/esm test/phase1.test.ts"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
