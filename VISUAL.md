@@ -1,6 +1,6 @@
-# Lyra 视觉生成协议
+# Lyra 视觉生成协议 V6.0
 
-> 当 `[视觉]` 标签触发时加载本协议。独立于主引擎进化，跟随视觉模型更新节奏。
+> 当 `[视觉]` 或 `[卡片]` 标签触发时加载本协议。独立于主引擎进化，跟随视觉模型更新节奏。
 
 ## 核心原则
 
@@ -16,36 +16,28 @@
 - 60-150 词
 - 有参考图时以 "Based on the reference image, ..." 开头
 
-### FLUX.2（Black Forest Labs, 2025.11）
-- FLUX.1 的重大升级，三个变体：
-  - pro：快速（6s），通用
-  - flex：最高质量，擅长排版和精细细节（22s）
-  - dev：开源，最快（2.5s）
+### FLUX.2（Black Forest Labs）
 - 支持最长 32K tokens 提示词，可写极其详细的描述
 - 多参考图（最多 8 张）：角色一致性、产品展示、风格迁移
 - 4MP 分辨率，任意宽高比
 - 擅长：手部/面部细节、材质渲染、文字排版、品牌色（hex 色值精确匹配）
-- 支持局部编辑、背景替换、生成式扩展/裁剪
-- 100-300 词（充分利用长提示词能力）
+- 提示词：100-300 词
 
-### Recraft V4（2026.02）
-- 核心优势："设计品味"——构图、色彩关系、视觉层次感像被艺术指导过
-- 支持最长 10,000 字符提示词
-- 原生 SVG 矢量输出（真正可编辑的矢量路径，可直接在 Figma/Illustrator 编辑）
+### Recraft V4（设计品味优先）
+- 原生 SVG 矢量输出，可直接在 Figma/Illustrator 编辑
 - 文字排版作为构图一等元素，与场景融合而非叠加
-- 四个变体：V4（标准光栅）、V4 Pro（高分辨率光栅）、V4 SVG、V4 Pro SVG
+- 四个变体：V4（标准光栅）、V4 Pro（高分辨率）、V4 SVG、V4 Pro SVG
 - 适合：编辑设计、商业产品摄影、品牌资产、图标集、海报
 - 提示词侧重：构图意图、排版层次、材质物理、色彩关系
-- 100-500 词
+- 提示词：100-500 词
 
-### Gemini 原生图片生成（Nano Banana Pro / Gemini 3 Pro Image, 2025.11）
-- 自回归架构（非扩散模型），理解文本语义而非仅空间信息
+### Gemini 原生图片生成（Nano Banana Pro / Gemini 3 Pro Image）
+- 自回归架构，理解文本语义而非仅空间信息
 - 最强文字渲染准确度，逐字精确
 - 可处理逻辑推理任务（解题、信息图表生成、代码渲染）
-- 可将长文档/论文压缩为信息图
-- 适合：信息可视化、教育内容、含大量文字的设计、代码截图
+- 适合：信息可视化、教育内容、含大量文字的设计
 - 提示词可包含需要渲染的完整文本内容
-- 60-200 词 + 可附带需渲染的原始文本
+- 提示词：60-200 词 + 可附带需渲染的原始文本
 
 ### 图片模型选择建议
 
@@ -72,34 +64,27 @@
 
 ### 模型特性
 
-**Veo 3 / Veo 3.1（Google, 2025.05/2025.10）：**
+**Veo 3 / Veo 3.1（Google）**
 - Veo 3：支持原生音频生成（对话、环境音、音效），8 秒，720p/1080p
-- Veo 3.1 新增能力：
-  - 参考图（最多 3 张）：保持角色/产品一致性，跨场景叙事
-  - 首尾帧控制：指定起止画面，模型自动插值过渡（适合变形/转场）
-- 提示词要素：镜头构图（single shot/two shot/over-the-shoulder）、焦点效果（shallow/deep/soft focus, macro/wide-angle lens）、整体风格（sci-fi/romantic comedy/action）、机位运动（eye level/high angle/worm's eye, dolly/zoom/pan/tracking shot）
+- Veo 3.1 新增：参考图（最多 3 张）保持角色/产品一致性；首尾帧控制
+- 提示词要素：镜头构图、焦点效果、整体风格、机位运动
 
-**Seedance 1 Pro/Lite + 2.0（ByteDance）：**
+**Seedance 1 Pro/Lite + 2.0（ByteDance）**
+- 2.0：写意图不写细节，支持参考素材语法
 - 1 Pro（高质量）和 1 Lite（快速/低成本），480p-1080p，5-10 秒
-- 2.0：写意图不写细节，支持参考素材语法（见下方）
 
-**Kling 2.0/2.1（快手, 2025.04/2025.06）：**
-- 2.1 Master 为最高质量，2.1 标准版性价比高
+**Kling 2.0/2.1（快手）**
+- 2.1 Master 最高质量，2.1 标准版性价比高
 - 720p-1080p，5-10 秒
 
-**Wan 2.2（阿里巴巴, 2025.07，开源）：**
+**Wan 2.2（阿里巴巴，开源）**
 - 超低成本（$0.05/视频），快速生成（~30 秒）
-- 480p-720p，5 秒
-- 适合快速原型和批量测试提示词
-- 支持 text-to-video 和 image-to-video
+- 480p-720p，5 秒，适合快速原型和批量测试
 
-**Hailuo 02（MiniMax, 2025.06）：**
-- 512p-1080p，6-10 秒
-
-**Gen-4 Turbo（Runway, 2025.04）：**
+**Gen-4 Turbo（Runway）**
 - 720p，5-10 秒，极快生成（22-32 秒）
 
-**Sora（OpenAI）：**
+**Sora（OpenAI）**
 - 扩散模型 + Transformer 架构
 
 ### 视频模型选择建议
@@ -115,12 +100,22 @@
 
 ## 参考素材语法（Seedance 2.0）
 
-- 完全保留：@图片1 / @视频1 / @音频1
+- 完全保留：`@图片1` / `@视频1` / `@音频1`
 - 提取元素："面部非常像@视频1角色"、"动作与@视频1一致"
 - 风格参考："画风严格对齐@视频1的风格"
 - 情绪调整："表现得更激动一些"（模型能修改素材情绪）
 
-## 场景模板库
+## V6.0 新增：YouMind 风格模板库
+
+| 风格 | 提示词模式 | 关键参数 |
+|------|-----------|---------|
+| 蜡笔插画 | "Rework into crayon-style illustration, bright playful colors, childlike imagination" | `{argument name="age" default="10-year-old"}` |
+| 产品启发服装 | "Using this product as inspiration, design a set of {style} clothing" | `{argument name="style" default="cool-style"}` |
+| 便利店抓拍 | "Candid moment, smartphone pov, shallow depth of field, natural skin tones" | `{argument name="nationality" default="Indonesian"}` `{argument name="action" default="smiling gently"}` |
+| 2D转3D户型 | "Convert 2D floor plan to photorealistic 3D render, preserve labels, bright catalog-style" | `{argument name="perspective" default="isometric"}` |
+| 赛博朋克工业 | "Cyberpunk industrial robot welding in smart factory, neon lighting, cinematic" | `{argument name="camera" default="tracking shot"}` |
+
+## 场景模板库（V6.0 扩充）
 
 | 场景 | 提示词模式 | 关键技巧 |
 |------|-----------|---------|
@@ -136,31 +131,43 @@
 | 小说→动画 | 直接粘贴原文+"画风对齐@视频1风格" | 续拍："延长15s，内容为：[后续文本]" |
 | UI→宣传片 | 先图像模型加质感，再"生成Fluent UI风格动效视频" | 单张抽卡效果优于多张 |
 | 工业设备 | "生成[设备型号]在[场景]中运行的展示视频，强调精度和效率" | B2B 场景，突出参数和应用 |
+| 高质感卡片/海报 | "生成一张[推荐对象]的高质感推荐卡片，苹果式克制，3秒读懂" | 视觉DNA提取、信息少而准、槽位化参数 |
 
 ## 避坑清单
 
 - 有常识的领域不写细节
 - 参考视频风格时必须描述核心特色
-- 人物相对镜头静止时加：CAMERA MOUNTED ON [角色], LOCKED-ON SHOT, FIXED-TO-ACTOR
+- 人物相对镜头静止时加：`CAMERA MOUNTED ON [角色], LOCKED-ON SHOT, FIXED-TO-ACTOR`
 - logo/文字受分辨率限制可能不准
 - 真人主体参考需本人验证或授权
+- V6.0 新增：卡片/海报模式必须保证手机端可读性，信息少而准，文字大且清楚，留白有呼吸感
 
-## 质量自检
+## 质量自检（V6.0 扩充）
 
 - [ ] 是否遵循"写意图不写细节"原则？
 - [ ] 简单场景是否用了一句话而非长篇描述？
-- [ ] 参考素材语法是否正确（@图片/@视频/@音频）？
+- [ ] 参考素材语法是否正确（`@图片`/`@视频`/`@音频`）？
 - [ ] 复杂场景是否控制在 50-120 词？
 - [ ] 是否有不必要的百科式描述可以删除？
+- [ ] **卡片/海报专项**：是否提取了推荐对象的视觉 DNA？
+- [ ] **卡片/海报专项**：是否做到信息少而准、文字大且清楚？
+- [ ] **卡片/海报专项**：是否保证手机端 3 秒读懂（是什么、为什么值得、适合谁）？
+- [ ] **卡片/海报专项**：是否使用了槽位化参数（`{argument name="xxx" default="yyy"}`）？
 
 ## Changelog
 
+### V6.0 (2026-05-05)
+- 新增 YouMind 风格模板库（蜡笔插画/产品启发/便利店抓拍/2D转3D）
+- 新增参数化语法：`{argument name="xxx" default="yyy"}`，支持可复用槽位
+- 场景模板库扩充至 14 个（新增工业设备、高质感卡片/海报）
+- 质量自检扩充：新增卡片/海报专项检查项
+- 避坑清单更新：新增卡片/海报模式注意事项
+- 图片生成补充：FLUX.2 32K tokens、Recraft V4 SVG、Gemini 文字渲染准确度
+
 ### V1.1 (2026-02-23)
-- 图片生成：新增 FLUX.2（32K tokens, 多参考图, 4MP）、Recraft V4（SVG, 设计品味, 10K 字符）、Gemini 原生图片生成（自回归, 文字精确渲染）
-- 图片模型按特性分层，新增选择建议表
-- 视频生成：新增 Veo 3/3.1（原生音频, 参考图, 首尾帧控制）、Kling 2.0/2.1、Seedance 1 Pro/Lite、Wan 2.2（开源低成本）、Hailuo 02、Gen-4 Turbo
-- 视频模型按特性分层，新增选择建议表
-- Veo 3.1 提示词要素详解（镜头构图/焦点/风格/机位）
+- 图片生成：新增 FLUX.2、Recraft V4、Gemini 原生图片生成
+- 视频生成：新增 Veo 3/3.1、Kling 2.0/2.1、Seedance 1 Pro/Lite、Wan 2.2、Hailuo 02、Gen-4 Turbo
+- 模型选择建议表分层清晰化
 
 ### V1.0 (2026-02-17)
 - 从 PROMPT.md V5.2 独立拆出
