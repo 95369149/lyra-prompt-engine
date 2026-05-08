@@ -4,7 +4,7 @@
 
 > 不是模板库，是编译器。将模糊需求 → 结构精确、可直接使用的 AI 提示词，会学习、会迭代、会适配不同模型。
 
-[![Version](https://img.shields.io/badge/version-V6.0-red?style=flat-square)](PROMPT.md)
+[![Version](https://img.shields.io/badge/version-V6.2-red?style=flat-square)](PROMPT.md)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/95369149/lyra-prompt-engine?style=flat-square&color=yellow)](https://github.com/95369149/lyra-prompt-engine/stargazers)
 
@@ -16,7 +16,7 @@
 |:-----|:-----|
 | 🎯 **9 种编译模式** | 文本 / 代码 / 分析 / 创意 / 视觉 / Agent / 编排 / 风格 / **卡片（V6.0 新增）** |
 | 🧬 **三层进化** | 会话内学习 → 知识刷新 → 版本迭代，越用越准 |
-| 🎨 **视觉生成协议** | 覆盖 MJ / DALL-E / Flux / Seedance / Kling / Sora，12+ 场景模板 |
+| 🎨 **视觉生成协议** | 覆盖 MJ / DALL-E / Flux / Seedance / Kling / Sora，支持字体美学 / 图鉴 / 抓拍 / 线条 / 乐高 / 表情包 / 发展史 / 国风知识图鉴等多模式 |
 | ✍️ **8 维风格分析** | 本体论到情感浓度，精准定义写作风格，三阶段构建 Skill |
 | 🤖 **多模型编排** | Orchestrator 拆解 + Worker 执行 + 7 分制质检，省 token 不省质量 |
 | 🔴 **槽位化设计（V6.0）** | TaskSpec v2 支持 `slots` 参数化，提示词可复用、易维护 |
@@ -84,10 +84,17 @@
 
 ## 📋 Changelog
 
+### V6.2 (2026-05-09) — 补全小小东新增提示词模式
+- **从三模式扩展到八模式**：在原有字体美学 / 植物图鉴 / 抓拍视角之外，新增线条融一切 / 乐高字体 / 表情包贴纸 / 万物发展史 / 国风知识图鉴
+- **补齐协议族**：新增 `line_language`、`graphic_layers`、`lego_typography`、`character_extraction`、`sticker_grid`、`text_image_fusion`、`timeline_architecture`、`knowledge_visualization`、`cultural_layout` 等槽位
+- **质量红线扩展到17项**：加入错误一致性、品牌资产边界、抽象图形必须回应主题、信息图必须有阶段结构、国风图鉴必须兼顾教学清晰度等约束
+- **统一术语**：采用 `flavor_tweak` 作为“个性化杠杆”命名，避免 README / VISUAL 之间不一致
+- **让 Lyra 更像完整视觉编译器**：不只会海报/卡片，也能稳定覆盖贴纸、信息图、教学页、概念封面与积木字体海报
+
 ### V6.1 (2026-05-08) — 融合小小东提示词工程
 - **融合小小东提示词工程**（字体美学/植物图鉴/抓拍视角），升级视觉DNA提取、槽位化设计、进化机制
 - **词义理解优先**：新增 `<semantic_analysis>` 槽位，自动触发词义→视觉隐喻链路
-- **汤底+杠杆结构**：`base_soup`（可复用通用协议）+ `flavor_weak`（个性化气质追加）
+- **汤底+杠杆结构**：`base_soup`（可复用通用协议）+ `flavor_tweak`（个性化气质追加）
 - **三种核心模式升级**：
   - 词义可视化（字体美学）：词义理解→视觉隐喻→巨型文字骨架
   - 知识图鉴（植物图鉴）：极大主体+知识节点生长+信息层级

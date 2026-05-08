@@ -1,7 +1,7 @@
-# Lyra 视觉生成协议 V6.1 — 融合小小东提示词工程
+# Lyra 视觉生成协议 V6.2 — 深化融合小小东提示词工程
 
 > 当 `[视觉]` 或 `[卡片]` 标签触发时加载本协议。  
-> V6.1 升级：融合小小东提示词工程（字体美学/植物图鉴/抓拍视角），强化**词义理解 → 视觉隐喻 → 槽位化参数** 的自进化链路。
+> V6.2 升级：在 V6.1 基础上继续吸收小小东新增提示词资产，补齐**线条融一切 / 乐高字体 / 表情包贴纸 / 万物发展史 / 国风知识图鉴**五类模式，让 Lyra 从三种核心模式扩展为更完整的视觉协议族。
 
 ---
 
@@ -212,6 +212,159 @@ Subject + Environment + Style + Lighting + Camera + Details
 </lens_language>
 ```
 
+### 模式四：线条融一切（抽象线条海报 / 封面）
+
+**原版核心**：先理解主题，再决定线条语言，让抽象结构回应主题，而不是随机装饰。
+
+**Lyra V6.2 槽位化**：
+```xml
+<semantic_analysis>
+  主题表层含义：[用户输入]
+  情绪气质：[理性/感性/冲突/生长/神秘/作者性]
+  内在张力：[自动提取]
+  语义关系：[自动梳理]
+</semantic_analysis>
+
+<line_language>
+  图形语言：[几何/波纹/脉络/手绘/观念海报]
+  线条气质：[精密/流动/撕裂/生长/松动]
+  结构方式：[中心聚合/路径推进/节点网络/模块拼接/回路漩涡]
+</line_language>
+
+<graphic_layers>
+  主视觉层：承载主题核心隐喻
+  辅助结构层：路径/节点/弧线/网格/参数曲线
+  氛围装饰层：边注/符号/刻度/点阵/标签
+  质感层：纸感/轻颗粒/印刷肌理/透明叠影
+</graphic_layers>
+
+<style_dna>
+  风格方向：理性几何 / 光学抽象 / 生物形态 / 手绘线稿 / 观念海报
+  配色：自动响应主题，兼顾高级感与手机端可读性
+  要求：抽象但有逻辑、诗意但不空洞、可解释但不直白
+</style_dna>
+```
+
+### 模式五：乐高字体（积木概念海报）
+
+**原版核心**：不是儿童玩具广告，而是设计展级别的积木字体研究海报。
+
+**Lyra V6.2 槽位化**：
+```xml
+<semantic_analysis>
+  主题文字：[用户输入]
+  核心关键词：[自动提炼]
+  视觉隐喻：[根据主题自动生成]
+</semantic_analysis>
+
+<lego_typography>
+  字体结构：模块化、几何、凸点、厚度、拼接、真实塑料质感
+  品牌约束：不使用官方 LEGO 标志或品牌元素，只保留积木风格语义
+  文字策略：长文本自动提炼，重点词做成积木字体
+</lego_typography>
+
+<layout_structure>
+  主标题：占据视觉中心
+  概念图形：与主题含义呼应
+  系统说明：字体样本、模块结构、颜色图例、细线标注
+  排版：网格、留白、信息图逻辑、设计展气质
+</layout_structure>
+
+<style_dna>
+  背景：米白/浅灰/暖白
+  主色：按主题自动选择红黄蓝绿黑等积木色
+  气质：高级、克制、现代、有收藏级海报感
+</style_dna>
+```
+
+### 模式六：表情包贴纸（错误一致性）
+
+**原版核心**：一致性不是像得一致，而是错得一致；图文像同一次乱画乱写同时发生。
+
+**Lyra V6.2 槽位化**：
+```xml
+<character_extraction>
+  角色识别：人/动物/组合角色自动识别
+  最低识别特征：发型轮廓/颜色/标志物
+  一致性定义：错误一致性，而非写实一致性
+</character_extraction>
+
+<sticker_grid>
+  版式：16枚贴纸，4x4排列
+  变体：单角色 / 多角色 / 互动关系随机分配
+  随机性：每格视为一次独立临时表达
+</sticker_grid>
+
+<text_image_fusion>
+  文字生成：像鼠标手写，歪、抖、大小不一
+  图文关系：吐槽 / 情绪强化 / 自言自语 / 轻微跑题幽默
+  关键约束：不是先画图再加字，而是图文同时发生
+</text_image_fusion>
+
+<style_dna>
+  风格来源：MS Paint 鼠标乱画 + 失败临摹
+  线条：抖动、锯齿、不稳定
+  情绪：笨拙、直接、荒诞、好笑
+  禁止：精致画面、正常比例、强设计感
+</style_dna>
+```
+
+### 模式七：万物发展史（时间演化信息图）
+
+**原版核心**：输入一个事物或主题，自动整理其起源、阶段、关键节点，并生成发展史信息图。
+
+**Lyra V6.2 槽位化**：
+```xml
+<semantic_analysis>
+  研究主题：[用户输入]
+  起源：[自动梳理]
+  关键阶段：[自动拆成阶段/里程碑]
+  演进逻辑：[技术突破/时代背景/品类迁移]
+</semantic_analysis>
+
+<timeline_architecture>
+  信息图结构：时间轴 / 折线 / 里程碑 / 对照 / 流程
+  节点密度：根据主题复杂度自动控制
+  信息层级：起源 > 转折 > 成熟 > 现状 > 未来趋势
+</timeline_architecture>
+
+<knowledge_visualization>
+  资料组织：关键节点、品类演变、技术变化、代表性案例
+  呈现要求：不是空洞图表，而是回应主题意义的视觉叙事
+  适用场景：教育、行业研究、品牌内容、知识卡片
+</knowledge_visualization>
+
+<style_dna>
+  风格：精美信息图、高完成度、逻辑清晰
+  约束：手机端可读、层级清楚、视觉节奏稳定
+</style_dna>
+```
+
+### 模式八：国风知识图鉴（汉语言 / 诗词 / 教学表达）
+
+**原版核心**：把诗词、汉语言、知识讲解做成兼具国风审美与教学逻辑的可视化页面，不只是海报，更是教学工具。
+
+**Lyra V6.2 槽位化**：
+```xml
+<semantic_analysis>
+  学科主题：[诗词/语文/历史/文化概念]
+  知识目标：[讲解/对照/拆解/背诵/赏析]
+  文化气质：[典雅/留白/书卷气/仪式感]
+</semantic_analysis>
+
+<cultural_layout>
+  主体结构：标题字骨架 + 知识节点 + 版面呼吸感
+  内容组织：概念解释/出处/意象/赏析/延展知识
+  页面用途：PPT页 / 教学图鉴 / 国风知识海报
+</cultural_layout>
+
+<style_dna>
+  视觉元素：水墨/宣纸/雅色/章法感/现代辅助黑体
+  表达原则：国风但不俗套，知识清晰但不教辅味过重
+  输出目标：兼顾审美传播与教学可用性
+</style_dna>
+```
+
 ---
 
 ## 质量红线（升级版）
@@ -228,6 +381,11 @@ Subject + Environment + Style + Lighting + Camera + Details
 10. ❌ 不要加入与主题无关的装饰
 11. ❌ 不要机械重复固定模板，要根据用户输入智能变化
 12. ❌ 不要堆元素，不要炫技，不要过满
+13. ❌ 表情包模式不要画得太好看，必须保留“错得一致”的粗糙感
+14. ❌ 乐高字体模式不要误用品牌资产，只保留积木风格语言
+15. ❌ 线条模式不要把抽象图形做成随机背景，必须回应主题语义
+16. ❌ 发展史信息图不要只堆资料点，必须形成阶段结构与演进逻辑
+17. ❌ 国风知识图鉴不要做成俗套古风海报，必须兼顾教学清晰度与现代排版
 
 ---
 
@@ -240,7 +398,7 @@ Subject + Environment + Style + Lighting + Camera + Details
   ↓
 <semantic_analysis> 词义理解（小小东核心）
   ↓
-<visual_metaphor> 视觉隐喻生成
+<visual_metaphor> / <line_language> / <timeline_architecture> / <cultural_layout>
   ↓
 <style_dna> 视觉DNA提取（从对象自动提取）
   ↓
@@ -250,7 +408,7 @@ Subject + Environment + Style + Lighting + Camera + Details
   ↓
 质量红线校验 → 通过 → 输出
   ↓ 失败
-重新触发 <visual_metaphor> 或 <style_dna>
+重新触发相关槽位（如 <visual_metaphor> / <line_language> / <timeline_architecture>）
 ```
 
 ### 进化指令（升级版）
@@ -260,7 +418,7 @@ Subject + Environment + Style + Lighting + Camera + Details
 | `Lyra /evolve` | 基于会话反馈输出优化建议 | 新增：词义理解深度、视觉隐喻准确度、DNA提取质量 |
 | `Lyra /changelog` | 版本变更历史 | 新增：小小东模式融合记录 |
 | `Lyra /audit` | 全面自检，报告过时技术和可优化模块 | 新增：汤底+杠杆结构检查、槽位化覆盖率 |
-| `Lyra /benchmark [模型]` | 针对指定模型输出适配建议 | 新增：小小东三模式（词义可视化/知识图鉴/抓拍视角）适配 |
+| `Lyra /benchmark [模型]` | 针对指定模型输出适配建议 | 新增：小小东多模式（字体美学/植物图鉴/抓拍/线条/乐高/表情包/发展史/国风图鉴）适配 |
 | `Lyra /style` | 触发写作风格 Skill 迭代 | 新增：视觉风格 Skill 迭代（色彩/构图/质感/情绪） |
 
 ---
@@ -276,7 +434,7 @@ Subject + Environment + Style + Lighting + Camera + Details
 情绪倾向：温柔、浪漫、纯真
 禁用元素：暴力、黑暗、廉价模板
 
-→ Lyra V6.1 自动触发：
+→ Lyra V6.2 自动触发：
 <semantic_analysis> 爱、温柔、浪漫、纯真、治愈感
 <visual_metaphor> 文字作为背景墙，人物嵌入字中，形成拥抱姿态
 <style_dna> 粉色系主调、纸张颗粒、丝网印刷感、极简构图
@@ -292,7 +450,7 @@ Subject + Environment + Style + Lighting + Camera + Details
 知识要求：至少10个中医相关知识，5个层级
 比例：2:1
 
-→ Lyra V6.1 自动触发：
+→ Lyra V6.2 自动触发：
 <semantic_analysis> 冬虫夏草、中药材、生物特性、药用价值
 <layout_structure> 极大主体（冬虫夏草特写），知识节点自然生长
 <style_dna> 植物学插画风格，水彩罩染，真实纸感，克制色调
@@ -309,7 +467,7 @@ Subject + Environment + Style + Lighting + Camera + Details
 情绪：疲惫但平静
 比例：2:1
 
-→ Lyra V6.1 自动触发：
+→ Lyra V6.2 自动触发：
 <capture_mood> 旁观感、偶然捕捉、像"刚好看到这一幕"
 <subject_clarity> 中景构图，车内人物清晰可辨认，车灯如星河蜿蜒
 <lens_language> 俯瞰视角、车流光轨、稳定构图、纪实摄影感
@@ -317,10 +475,71 @@ Subject + Environment + Style + Lighting + Camera + Details
 <flavor_tweak> 夜色冷调、车灯暖光、冷暖对比、纪录片情绪
 ```
 
+### 示例四：线条融一切（概念封面）
+
+```
+[视觉]
+主题：系统正在崩塌但仍然运转
+用途：文章封面
+风格倾向：观念海报
+
+→ Lyra V6.2 自动触发：
+<semantic_analysis> 秩序、裂变、拉扯、危险平衡
+<line_language> 断裂、偏移、碰撞、回路漩涡式结构
+<graphic_layers> 主视觉裂缝 + 辅助网格 + 细小刻度边注
+<style_dna> 黑白高对比，少量红色强调，抽象但可解释
+```
+
+### 示例五：乐高字体（积木海报）
+
+```
+[视觉]
+主题：旺铺出租
+比例：2:1
+用途：商业招租海报
+
+→ Lyra V6.2 自动触发：
+<semantic_analysis> 商业、模块化、醒目、可传播
+<lego_typography> 积木颗粒、凸点、厚度、拼接结构
+<layout_structure> 主标题居中，侧边展示模块图例与细线标注
+<style_dna> 米白背景 + 红黄蓝积木色点缀，设计展海报感
+```
+
+### 示例六：表情包贴纸（错误一致性）
+
+```
+[视觉]
+角色参考：一只炸毛猫
+文案气质：打工人崩溃、摆烂、吐槽
+输出：16枚聊天贴纸
+
+→ Lyra V6.2 自动触发：
+<character_extraction> 保留炸毛轮廓和眼神特征
+<sticker_grid> 4x4贴纸矩阵，每格随机临时表达
+<text_image_fusion> 歪斜手写字 + 同次乱画乱写感
+<style_dna> MS Paint 粗糙感、错得一致、荒诞好笑
+```
+
+### 示例七：万物发展史（信息图）
+
+```
+[视觉]
+主题：咖啡豆进化史
+用途：知识内容海报
+比例：3:4
+
+→ Lyra V6.2 自动触发：
+<semantic_analysis> 起源、传播、品种演变、烘焙与精品咖啡阶段
+<timeline_architecture> 时间轴 + 关键里程碑 + 现代表达
+<knowledge_visualization> 品类变化、技术节点、文化扩散
+<style_dna> 高完成度信息图、层级清楚、手机端可读
+```
+
 ---
 
 ## 更新记录
 
+- **V6.2（2026-05-09）**：在 V6.1 基础上补齐线条融一切 / 乐高字体 / 表情包贴纸 / 万物发展史 / 国风知识图鉴五类新增模式，扩展质量红线与进化槽位
 - **V6.1（2026-05-08）**：融合小小东提示词工程（字体美学/植物图鉴/抓拍视角），升级视觉DNA提取、槽位化设计、进化机制
 - **V6.0（3天前）**：新增卡片模式、槽位化TaskSpec、视觉DNA提取、YouMind风格模板库
 - **V4.1（3个月前）**：自进化 AI 提示词编译引擎，9种编译模式
@@ -333,4 +552,9 @@ Subject + Environment + Style + Lighting + Camera + Details
 - **字体美学单词视觉化**：`wiki/字体美学单词视觉化提示词模板.md`
 - **植物图鉴提示词**：`raw/2026-05-03-x-xiaoxiaodong01-plant-herbal-prompt.md`
 - **抓拍视角提示词**：`wiki/提示词库/xiaoxiaodong01/raw/2048229427906248744.json`
+- **线条融一切提示词**：`raw/2026-04-30-x-xiaoxiaodong01-line-art-prompt.md`
+- **乐高字体提示词**：`raw/2026-05-01-x-xiaoxiaodong01-lego-font-prompt.md`
+- **表情包贴纸提示词**：`raw/2026-05-02-x-xiaoxiaodong01-emoji-sticker-prompt.md`
+- **万物发展史提示词**：`raw/2026-04-27-x-xiaoxiaodong01-evolution-history-prompt.md`
+- **汉语言 / 国风知识图鉴**：`raw/2026-04-28-x-xiaoxiaodong01-han-language-ppt.md`
 - **Lyra Prompt Engine 仓库**：https://github.com/95369149/lyra-prompt-engine
