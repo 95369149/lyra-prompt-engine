@@ -1,10 +1,10 @@
-# 🔴 Lyra Prompt Engine
+# Lyra Prompt Engine
 
 **自进化 AI 提示词编译引擎**
 
 > 不是模板库，是编译器。将模糊需求 → 结构精确、可直接使用的 AI 提示词，会学习、会迭代、会适配不同模型。
 
-[![Version](https://img.shields.io/badge/version-V6.2-red?style=flat-square)](PROMPT.md)
+[![Version](https://img.shields.io/badge/version-V6.3-red?style=flat-square)](PROMPT.md)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/95369149/lyra-prompt-engine?style=flat-square&color=yellow)](https://github.com/95369149/lyra-prompt-engine/stargazers)
 
@@ -16,7 +16,7 @@
 |:-----|:-----|
 | 🎯 **9 种编译模式** | 文本 / 代码 / 分析 / 创意 / 视觉 / Agent / 编排 / 风格 / **卡片（V6.0 新增）** |
 | 🧬 **三层进化** | 会话内学习 → 知识刷新 → 版本迭代，越用越准 |
-| 🎨 **视觉生成协议** | 覆盖 MJ / DALL-E / Flux / Seedance / Kling / Sora，支持字体美学 / 图鉴 / 抓拍 / 线条 / 乐高 / 表情包 / 发展史 / 国风知识图鉴等多模式 |
+| 🎨 **视觉生成协议** | 覆盖 MJ / DALL-E / Flux / Seedance / Kling / Sora，支持字体美学 / 图鉴 / 抓拍 / 线条 / 线稿海报 / 乐高 / 表情包 / 发展史 / 国风知识图鉴等多模式 |
 | ✍️ **8 维风格分析** | 本体论到情感浓度，精准定义写作风格，三阶段构建 Skill |
 | 🤖 **多模型编排** | Orchestrator 拆解 + Worker 执行 + 7 分制质检，省 token 不省质量 |
 | 🔴 **槽位化设计（V6.0）** | TaskSpec v2 支持 `slots` 参数化，提示词可复用、易维护 |
@@ -84,6 +84,11 @@
 
 ## 📋 Changelog
 
+### V6.3 (2026-05-13) — 吸收小小东线稿海报工作流
+- **新增线稿海报 / PPT 页面示例**：加入 `examples/card-xiaoxiaodong-line-poster.md`，把“先检索后作图、可垫图转译、可承载文字信息”的新方法沉淀为可复用提示词
+- **视觉协议继续补强**：在既有线条模式基础上，额外强调信息可靠性、知识型页面表达、参考图转译与 PPT 页面化能力
+- **让视觉模式更偏工作流**：不只生成好看图片，也支持“检索 → 内容组织 → 视觉表达 → 页面输出”闭环
+
 ### V6.2 (2026-05-09) — 补全小小东新增提示词模式
 - **从三模式扩展到八模式**：在原有字体美学 / 植物图鉴 / 抓拍视角之外，新增线条融一切 / 乐高字体 / 表情包贴纸 / 万物发展史 / 国风知识图鉴
 - **补齐协议族**：新增 `line_language`、`graphic_layers`、`lego_typography`、`character_extraction`、`sticker_grid`、`text_image_fusion`、`timeline_architecture`、`knowledge_visualization`、`cultural_layout` 等槽位
@@ -132,6 +137,7 @@ lyra-prompt-engine/
 ├── README.md          # 本文件
 └── examples/         # 示例库
     ├── card-xiaoxiaodong01.md    # 高质感卡片提示词（苹果式克制）
+    ├── card-xiaoxiaodong-line-poster.md # 线稿海报 / PPT 页面提示词
     ├── card-youmind-hot-prompts.md # YouMind 热门视觉提示词模板
     ├── article-generation.md       # 文章生成示例
     ├── marketing-copy.md          # 营销文案示例
